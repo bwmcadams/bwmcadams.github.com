@@ -51,12 +51,12 @@ root: /
 permalink: /:year/:month/:day/:title/
 code_dir: code
 category_dir: categories
-markdown: kramdown
-kramdown:
-  enable_coderay: true
-  syntax_highlighter_opts:
-    line_numbers: list # nil, inline, list, table
-    css: style
+#markdown: kramdown
+#kramdown:
+#  enable_coderay: true
+#  syntax_highlighter_opts:
+#    line_numbers: inline # nil, inline, list, table
+#    css: style
 #rdiscount:
 #  extensions:
 #    - autolink
