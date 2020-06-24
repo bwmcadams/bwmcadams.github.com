@@ -21,6 +21,17 @@ simple_search: https://www.google.com/search
 description:
 logo: logo_small.png
 
+# Default date format is "ordinal" (resulting in "July 22nd 2007")
+# You can customize the format as defined in
+# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
+# Additionally, %o will give you the ordinal representation of the day
+date_format: "ordinal"
+
+# RSS / Email (optional) subscription links (change if using something like Feedburner)
+subscribe_rss: /atom.xml
+subscribe_email:
+# RSS feeds can list your email address if you like
+email: brendan@bytes.codes
 
 # Github repositories
 github_user: bwmcadams
@@ -34,9 +45,35 @@ twitter_tweet_button: true
 
 # Build settings
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-theme-hacker
+theme: jekyll-theme-hacker
+# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+root: /
+permalink: /:year/:month/:day/:title/
+code_dir: code
+category_dir: categories
+markdown: kramdown
+kramdown:
+  enable_coderay: true
+  syntax_highlighter_opts:
+    line_numbers: list # nil, inline, list, table
+    css: style
+#rdiscount:
+#  extensions:
+#    - autolink
+#    - footnotes
+#    - smart
+
+paginate: 5 # Posts per page on the blog index
+paginate_path: ":num"  # Directory base for pagination URLs eg. /posts/2/
+recent_posts: 5       # Posts in the sidebar Recent Posts section
+excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_separator: "<!--more-->"
+
+titlecase: true       # Converts page and post titles to titlecase
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -49,3 +86,59 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+plugins:
+  - jekyll-spaceship
+
+
+
+# Where things are
+jekyll-spaceship:
+  # default enabled processors
+  processors:
+    - table-processor
+    - mathjax-processor
+    - plantuml-processor
+    - mermaid-processor
+    - polyfill-processor
+    - video-processor
+    - emoji-processor
+    - element-processor
+  mathjax-processor:
+    src:  //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    config:
+      tex2jax:
+        inlineMath:
+          - ['$','$']
+          - ['\(','\)']
+  plantuml-processor:
+    mode: default  # mode value 'pre-fetch' for fetch image at building stage
+    css:
+      class: plantuml
+    syntax:
+      code: 'plantuml!'
+      custom: ['@startuml', '@enduml']
+    src: http://www.plantuml.com/plantuml/png/
+  mermaid-processor:
+    mode: default  # mode value 'pre-fetch' for fetch image at building stage
+    css:
+      class: mermaid
+    syntax:
+      code: 'mermaid!'
+      custom: ['@startmermaid', '@endmermaid']
+    config:
+      theme: default
+    src: https://mermaid.ink/svg/
+  video-processor:
+    default:
+      id: 'video-{id}'
+      class: 'video'
+      width: '100%'
+      height: 350
+      border: 0
+      style: 'max-width: 600px'
+      allow: 'encrypted-media; picture-in-picture'
+  emoji-processor:
+    css:
+      class: emoji
+    src: https://github.githubassets.com/images/icons/emoji/
