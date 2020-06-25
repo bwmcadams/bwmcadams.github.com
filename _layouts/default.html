@@ -19,16 +19,7 @@
           <h1>{{ site.title  }}</h1>
         </a>
         <h2>{{ site.description  }}</h2>
-        <div align="center"> {% include links.html %} </div>
-        <section id="social">
-          {% if site.github_user %}
-            <a href="https://github.com/{{ site.github_user }}" title="{{ site.github_user}}"><i class="fa fa-github fa-2x"></i></a>
-          {% endif %}
-
-          {% if site.twitter_user %}
-            <a href="https://twitter.com/{{ site.twitter_user }}" title="{{ site.twitter_user}}"><i class="fa fa-twitter fa-2x"></i></a>
-          {% endif %}
-        </section>
+        <nav> {% include links.html %} </nav>
 
       </div>
     </header>

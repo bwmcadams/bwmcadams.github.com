@@ -5,6 +5,7 @@
 @import "rouge-base16-dark";
 @import "default_colors";
 @import "fontawesome";
+@import "solid";
 @import "brands";
 
 $body-background: $cod-grey !default;
@@ -272,4 +273,12 @@ a:active, a:focus {
 
 #wrapper {
   min-height: calc(100vh - 100px);
+}
+
+nav {
+  text-align: center;
+}
+
+.social {
+  text-align: center;
 }

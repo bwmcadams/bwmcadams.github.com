@@ -1,3 +1,11 @@
 <a href="{{ "/archive" | prepend: site.baseurl | replace: '//', '/' }}"><h2 class="header-link">Archive</h2></a>
 <a href="{{ "/about" | prepend: site.baseurl | replace: '//', '/' }}"><h2 class="header-link">About</h2></a>
 <a href="{{ "/atom.xml" | prepend: site.baseurl | replace: '//', '/' }}"><h2 class="header-link">RSS</h2></a>
+<br>
+{% if site.github_user %}
+  <a href="https://github.com/{{ site.github_user }}" title="{{ site.github_user}}"><i class="fab fa-github fa-2x"></i></a>
+{% endif %}
+
+{% if site.twitter_user %}
+  <a href="https://twitter.com/{{ site.twitter_user }}" title="{{ site.twitter_user}}"><i class="fab fa-twitter fa-2x"></i></a>
+{% endif %}
